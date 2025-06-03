@@ -54,7 +54,7 @@ ggplot(iris, aes(x = Petal.Length, y = Sepal.Length,
                   shape = Species, color = Species)) +
   geom_point(size = 2) +
   scale_shape_manual(values = c(16, 8, 6)) +     
-  scale_color_manual(values = c("brown", "blue", "darkgreen")) +  # red and blue
+  scale_color_manual(values = c("brown", "blue", "darkgreen")) +
   labs(
     x = "Petal length (cm)",
     y = "Sepal length (cm)"
@@ -99,7 +99,7 @@ knitr::include_graphics('iris.png')
 
 <br>
 
-Based on these plots and the image, we can rank the petal and sepal lengths of the three flower species from largest to smallest as follows:
+Based on these plots and the images, we can rank the petal and sepal lengths of the three flower species from largest to smallest as follows:
 
 - Iris Virginica
     - Iris Versicolor
