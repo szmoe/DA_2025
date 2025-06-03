@@ -1,0 +1,108 @@
+---
+title: "Seminar-4-Markdown-Exercise"
+author: "SM"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: 
+  bookdown::html_document2:
+    toc: true 
+    toc_float: true
+    toc_depth: 3  
+    number_sections: true  
+    theme: journal  
+    highlight: espresso 
+    fig_caption: true
+---
+
+```{r, include=FALSE}
+
+library(ggplot2)
+library(tidyverse)
+library(kableExtra)
+
+``` 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Analysis of petal and sepal lengths using `iris` dataset 
+
+<br>
+
+First, we call the iris dataset.
+
+```{r call_iris}
+
+data("iris")
+
+kable(head(iris, 10)) %>%
+  kable_styling("striped", position = "left", font_size = 10)
+
+```
+
+<br>
+
+### Including plots
+
+<br>
+
+Let's create a plot of petal and sepal lengths of the three flower species: "versicolor" and "virginica."
+
+```{r, point}
+
+ggplot(iris, aes(x = Petal.Length, y = Sepal.Length,
+                  shape = Species, color = Species)) +
+  geom_point(size = 2) +
+  scale_shape_manual(values = c(16, 8, 6)) +     
+  scale_color_manual(values = c("brown", "blue", "darkgreen")) +  # red and blue
+  labs(
+    x = "Petal length (cm)",
+    y = "Sepal length (cm)"
+  ) +
+  theme_minimal()
+
+```
+
+<br>
+
+We can also made a boxplot petal lengths between the three species.
+
+```{r, boxplot}
+
+library(ggplot2)
+
+iris.sub <- subset(iris, Species %in% c("versicolor", "virginica"))
+ggplot(iris, aes(x = Species, y = Petal.Length, fill = Species)) +
+  geom_boxplot() +
+  labs(
+    title = "Petal Length of Versicolor vs Virginica vs Setosa",
+    x = "Species",
+    y = "Petal Length (cm)"
+  ) +
+  theme_minimal()
+```
+
+<br>
+
+### Including Figures
+
+<br>
+
+We can also embed images of the flower species from the dataset.
+
+
+```{r}
+
+knitr::include_graphics('iris.png')
+
+```
+
+<br>
+
+Based on these plots and the image, we can rank the petal and sepal lengths of the three flower species from largest to smallest as follows:
+
+- Iris Virginica
+    - Iris Versicolor
+        - Iris Setosa
+        
+---
