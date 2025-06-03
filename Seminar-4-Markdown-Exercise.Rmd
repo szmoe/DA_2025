@@ -46,7 +46,7 @@ kable(head(iris, 10)) %>%
 
 <br>
 
-Let's create a plot of petal and sepal lengths of the three flower species: "versicolor" and "virginica."
+Let's create a plot of petal and sepal lengths of the three flower species: ***setosa***, ***versicolor*** and ***virginica.***
 
 ```{r, point}
 
